@@ -1,0 +1,22 @@
+services:
+  backend-fastapi:
+    build: ./backend-fastapi
+    env_file:
+      - ./.env
+    volumes:
+      # Bind mount your secret prompt markdown file into the container
+      - ./backend-fastapi/config/persona.md:/app/config/persona.md:ro
+    restart: always
+
+  bot-whatsapp:
+    build: ./bot-whatsapp
+    env_file:
+      - ./.env
+    environment:
+      - BACKEND_URL=http://backend-fastapi:8000/chat-context
+    volumes:
+      # Persist session state across service builds
+      - ./bot-whatsapp/auth_info_baileys:/app/auth_info_baileys
+    restart: always
+    depends_on:
+      - backend-fastapi

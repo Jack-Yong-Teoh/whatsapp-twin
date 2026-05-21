@@ -1,0 +1,11 @@
+# .gitignore
+.env
+__pycache__/
+*.pyc
+
+# Secret prompt files
+backend-fastapi/config/persona.md
+
+# WhatsApp login state volumes
+bot-whatsapp/auth_info_baileys/
+bot-whatsapp/baileys_store_multi.json

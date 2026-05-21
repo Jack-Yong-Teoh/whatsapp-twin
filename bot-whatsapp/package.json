@@ -1,0 +1,10 @@
+{
+  "name": "bot-whatsapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "@whiskeysockets/baileys": "^7.0.0-rc12",
+    "axios": "^1.6.0",
+    "qrcode-terminal": "^0.12.0"
+  }
+}
